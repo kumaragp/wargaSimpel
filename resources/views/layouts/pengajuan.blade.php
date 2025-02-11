@@ -45,12 +45,16 @@
                 <div x-show="open" x-transition class="mt-4 p-4 w-full max-w-2xl">
                     <input type="text" id="nik" placeholder="NIK" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
                     <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="ttl" placeholder="Tempat/Tanggal Lahir" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="jenisKelamin" placeholder="Jenis Kelamin" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="pekerjaan" placeholder="Pekerjaan" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="alamat" placeholder="Alamat" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
                     <p class="text-sm mb-4 text-gray-500 italic">*Sesuai KTP</p>
-                    <input type="text" id="noKTP" placeholder="No. KTP" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="namaPerusahaan" placeholder="Nama Perusahaan" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
                     <input type="text" id="jenisUsaha" placeholder="Jenis Usaha" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
                     <input type="text" id="alamatUsaha" placeholder="Alamat Usaha" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
                     <div class="flex justify-end">
-                        <button id="btnBuatSurat" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
+                        <button id="btnBuatSuratUsaha" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
                             Buat Surat
                         </button>
                     </div>
@@ -66,22 +70,248 @@
                     </svg>
                 </button>
                 <div x-show="open" x-transition class="mt-4 p-4 w-full max-w-2xl">
-                    <input type="text" id="namaBayi" placeholder="Nama Bayi" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="nama" placeholder="Nama" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
                     <input type="text" id="ttl" placeholder="Tempat Tanggal Lahir" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
-                    <input type="text" id="namaAyah" placeholder="Nama Ayah" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
-                    <input type="text" id="NIKAyah" placeholder="NIK Ayah" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
-                    <input type="text" id="namaIbu" placeholder="Nama Ibu" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
-                    <input type="text" id="NIKIbu" placeholder="NIK Ibu" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="jenisKelamin" placeholder="Jenis Kelamin" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="pekerjaan" placeholder="Pekerjaan" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
                     <input type="text" id="alamat" placeholder="Alamat" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="namaAyah" placeholder="Nama Ayah" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="namaIbu" placeholder="Nama Ibu" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="anakKe" placeholder="Anak Ke" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
                     <input type="date" class="w-full p-4 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
                     <div class="flex justify-end">
-                        <button id="btnBuatSurat" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
+                        <button id="btnBuatSuratLahir" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
                             Buat Surat
                         </button>
                     </div>
                 </div>
             </div>
+
+            <!-- Surat Keterangan Ahli Waris -->
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
+                    <span class="text-xl font-semibold">SURAT KETERANGAN AHLI WARIS</span>
+                    <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" x-transition class="mt-4 p-4 w-full max-w-2xl">
+                    <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="ttl" placeholder="Tempat Tanggal Lahir" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="jenisKelamin" placeholder="Jenis Kelamin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <p class="text-sm mb-4 text-gray-500 italic">*Sesuai KTP</p>
+                    <input type="text" id="namaAlmarhumAlmarhumah" placeholder="Nama Almarhum / Almarhumah" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="tahunMeninggalDunia" class="w-full p-4 border-2 rounded-md transition-all duration-300 focus:ring-green-950" placeholder="Tanggal Meninggal Dunia" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
+                    <input type="date" class="w-full p-4 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <div class="flex justify-end">
+                        <button id="btnBuatSuratAhliWaris" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
+                            Buat Surat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Surat Keterangan Janda / Duda -->
+             <div x-data="{ open: false }">
+                <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
+                    <span class="text-xl font-semibold">SURAT KETERANGAN JANDA / DUDA</span>
+                    <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" x-transition class="mt-4 p-4 w-full max-w-2xl">
+                    <input type="text" id="nik" placeholder="NIK" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="ttl" placeholder="Tempat Tanggal Lahir" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="jenisKelamin" placeholder="Jenis Kelamin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="pekerjaan" placeholder="Pekerjaan" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="agama" placeholder="Agama" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="alamat" placeholder="Alamat" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <p class="text-sm mb-4 text-gray-500 italic">*Sesuai KTP</p>
+                    <input type="date" class="w-full p-4 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <div class="flex justify-end">
+                        <button id="btnBuatSuratJandaDuda" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
+                            Buat Surat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Surat Keterangan Tidak Mampu -->
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
+                    <span class="text-xl font-semibold">SURAT KETERANGAN TIDAK MAMPU (SKTM)</span>
+                    <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" x-transition class="mt-4 p-4 w-full max-w-2xl">
+                    <input type="text" id="nik" placeholder="NIK" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="ttl" placeholder="Tempat Tanggal Lahir" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="jenisKelamin" placeholder="Jenis Kelamin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="pekerjaan" placeholder="Pekerjaan" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="agama" placeholder="Agama" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="alamat" placeholder="Alamat" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <p class="text-sm mb-4 text-gray-500 italic">*Sesuai KTP</p>
+                    <input type="date" class="w-full p-4 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <div class="flex justify-end">
+                        <button id="btnBuatSKTM" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
+                            Buat Surat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Surat Keterangan Kematian -->
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
+                    <span class="text-xl font-semibold">SURAT KETERANGAN KEMATIAN</span>
+                    <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" x-transition class="mt-4 p-4 w-full max-w-2xl">
+                    <input type="text" id="nama" placeholder="Nama Lengkap Almarhum / Almarhumah" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="ttl" placeholder="Tempat & Tanggal Lahir" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="jenisKelamin" placeholder="Jenis Kelamin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="pekerjaan" placeholder="Pekerjaan" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="agama" placeholder="Agama" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="alamat" placeholder="Alamat" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <p class="text-sm mb-4 text-gray-500 italic">*Sesuai KTP</p>
+                    <input type="text" id="tanggalMeninggalDunia" class="w-full p-4 border-2 rounded-md transition-all duration-300 focus:ring-green-950" placeholder="Tanggal Meninggal Dunia" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
+                    <input type="text" id="penyebabKematian" placeholder="Penyebab Kematian (Opsional)" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="tempat" placeholder="Tempat" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="date" class="w-full p-4 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <div class="flex justify-end">
+                        <button id="btnBuatSuratKematian" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
+                            Buat Surat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Surat Keterangan Pindah Penduduk -->
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
+                    <span class="text-xl font-semibold">SURAT KETERANGAN PINDAH PENDUDUK</span>
+                    <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" x-transition class="mt-4 p-4 w-full max-w-2xl">
+                    <input type="text" id="nik" placeholder="NIK" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="ttl" placeholder="Tempat / Tanggal Lahir" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="jenisKelamin" placeholder="Jenis Kelamin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="agama" placeholder="Agama" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="kewarganegaraan" placeholder="Kewarganegaraan" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="pendidikan" placeholder="Pendidikan" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950"><label for="statusKawin">Status Kawin:</label>
+                    <select id="statusKawin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                        <option value="">-- Pilih Status Kawin --</option>
+                        <option value="Belum Kawin">Belum Kawin</option>
+                        <option value="Kawin">Kawin</option>
+                        <option value="Cerai Hidup">Cerai Hidup</option>
+                        <option value="Cerai Mati">Cerai Mati</option>
+                    </select>
+                    <input type="text" id="pekerjaan" placeholder="Pekerjaan" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="alamatAsal" placeholder="Alamat Asal" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <p class="text-sm mb-4 text-gray-500 italic">*Sesuai KTP</p>
+                    <label>Pindah ke</label>
+                    <div class="mb-3">
+                        <label for="desa">• Desa / Kelurahan:</label>
+                        <input type="text" id="desa" placeholder="Desa / Kelurahan" class="w-full p-3 border-2 rounded-md mb-3">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="kecamatan">• Kecamatan:</label>
+                        <input type="text" id="kecamatan" placeholder="Kecamatan" class="w-full p-3 border-2 rounded-md mb-3">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="kabupaten">• Kota / Kabupaten:</label>
+                        <input type="text" id="kabupaten" placeholder="Kota / Kabupaten" class="w-full p-3 border-2 rounded-md mb-3">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="provinsi">• Provinsi:</label>
+                        <input type="text" id="provinsi" placeholder="Provinsi" class="w-full p-3 border-2 rounded-md mb-3">
+                    </div>
+                    <input type="text" id="alasanPindah" placeholder="Alasan Pindah" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="date" class="w-full p-4 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <div class="flex justify-end">
+                        <button id="btnBuatSuratPindahPenduduk" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
+                            Buat Surat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Surat Pengantar -->
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
+                    <span class="text-xl font-semibold">SURAT PENGANTAR</span>
+                    <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" x-transition class="mt-4 p-4 w-full max-w-2xl">
+                    <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="ttl" placeholder="Tempat & Tanggal Lahir" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="jenisKelamin" placeholder="Jenis Kelamin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <select id="statusKawin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                        <option value="">-- Pilih Status Kawin --</option>
+                        <option value="Belum Kawin">Belum Kawin</option>
+                        <option value="Kawin">Kawin</option>
+                        <option value="Cerai Hidup">Cerai Hidup</option>
+                        <option value="Cerai Mati">Cerai Mati</option>
+                    </select>
+                    <input type="text" id="nik" placeholder="NIK" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="alamat" placeholder="Alamat" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <p class="text-sm mb-4 text-gray-500 italic">*Sesuai KTP</p>
+                    <input type="text" id="keperluan" placeholder="Keperluan" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="date" class="w-full p-4 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <div class="flex justify-end">
+                        <button id="btnBuatSuratPengantar" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
+                            Buat Surat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Surat Domisili -->
+            <div x-data="{ open: false }">
+                <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
+                    <span class="text-xl font-semibold">SURAT DOMISILI</span>
+                    <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" x-transition class="mt-4 p-4 w-full max-w-2xl">
+                    <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="ttl" placeholder="Tempat & Tanggal Lahir" class="w-full p-3 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <select id="statusKawin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                        <option value="">-- Pilih Status Kawin --</option>
+                        <option value="Belum Kawin">Belum Kawin</option>
+                        <option value="Kawin">Kawin</option>
+                        <option value="Cerai Hidup">Cerai Hidup</option>
+                        <option value="Cerai Mati">Cerai Mati</option>
+                    </select>
+                    <input type="text" id="jenisKelamin" placeholder="Jenis Kelamin" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="agama" placeholder="Agama" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <input type="text" id="alamat" placeholder="Alamat" class="w-full p-3 border-2 rounded-md mb-3 transition-all duration-300 focus:ring-green-950">
+                    <p class="text-sm mb-4 text-gray-500 italic">*Sesuai KTP</p>
+                    <input type="date" class="w-full p-4 border-2 rounded-md mb-4 transition-all duration-300 focus:ring-green-950">
+                    <div class="flex justify-end">
+                        <button id="btnBuatSuratDomisili" class="bg-white text-emerald-500 p-2 px-3 text-xl font-semibold rounded-lg shadow-md border-2 border-gray-300 hover:bg-gray-300">
+                            Buat Surat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <script src="{{ asset('docs/dokumen.js') }}"></script>
+
         </div>
     </div>
 </body>
