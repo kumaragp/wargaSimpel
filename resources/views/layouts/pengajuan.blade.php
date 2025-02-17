@@ -132,7 +132,7 @@
             </div>
 
              <!-- Surat Keterangan Janda / Duda -->
-             <div x-data="{ open: false }">
+             <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
                     <span class="text-xl font-semibold">SURAT KETERANGAN JANDA / DUDA</span>
                     <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
