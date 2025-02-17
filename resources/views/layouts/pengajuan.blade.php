@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         .font-inter {
             font-family: 'Inter', sans-serif;
@@ -15,25 +16,30 @@
     </style>
 </head>
 <body class="bg-gray-50 font-inter">
-    <header class="bg-green-950 shadow pt-10">
-        <nav class="w-full text-md flex justify-between items-center py-4 px-10 fixed top-0 left-0 right-0 bg-green-950 shadow-md z-50">
-            <a href="{{ route('home') }}">
-                <img src="images/wargasimpel.png" class="w-64 h-auto ml-6">
+<header class="bg-green-950 shadow">
+    <nav class="w-full text-md flex justify-between items-center py-4 px-10 fixed top-0 left-0 right-0 bg-green-950 shadow-md z-50">
+       <div class="flex-grow flex justify-center md:justify-start">
+        <a href="{{ route('home') }}">
+            <img src="images/wargasimpel.png" class="w-40 lg:w-64 h-auto">
+        </a>
+    </div>
+    <ul class="hidden md:flex md:space-x-6 lg:space-x-8">
+        <li>
+            <a href="{{ route('home') }}" class="block text-center bg-emerald-500 text-green-950 py-2 px-4 sm:py-2 sm:px-6 text-sm sm:text-md md:text-lg rounded-lg hover:bg-gray-300 transition-all duration-300">
+                BERANDA
             </a>
-            <ul class="flex space-x-8 ml-auto">
-                <li>
-                    <a href="{{ route('home') }}" class="bg-emerald-500 text-green-950 py-3 px-8 rounded-lg hover:bg-gray-300 transition-all duration-300">
-                        BERANDA
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
+        </li>
+    </ul>
+    </nav>
+</header>
     <div class="flex justify-start items-start min-h-screen pt-24 px-10">
         <div class="bg-transparent p-6 rounded-lg shadow-lg w-full max-w-3xl">
-            <span class="flex items-center text-green-950 mb-6 ml-2 text-4xl font-semibold">PENGAJUAN SURAT</span>
-
+        <div class="flex items-center mb-6 ml-2">
+            <!-- <a href="{{ route('home') }}" class="hidden md:flex mr-2">
+                <img src="images/back.png" alt="Back" class="w-8 h-8">
+            </a> -->
+            <span class="text-green-950 text-4xl font-semibold">PENGAJUAN SURAT</span>
+        </div>
             <!-- Surat Keterangan Usaha -->
             <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
@@ -62,7 +68,7 @@
             </div>
 
             <!-- Surat Keterangan Lahir -->
-            <div x-data="{ open: false }">
+            <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
                     <span class="text-xl font-semibold">SURAT KETERANGAN LAHIR</span>
                     <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -88,7 +94,7 @@
             </div>
 
             <!-- Surat Keterangan Ahli Waris -->
-            <div x-data="{ open: false }">
+            <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
                     <span class="text-xl font-semibold">SURAT KETERANGAN AHLI WARIS</span>
                     <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -112,7 +118,7 @@
             </div>
 
              <!-- Surat Keterangan Janda / Duda -->
-             <div x-data="{ open: false }">
+             <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
                     <span class="text-xl font-semibold">SURAT KETERANGAN JANDA / DUDA</span>
                     <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +144,7 @@
             </div>
 
             <!-- Surat Keterangan Tidak Mampu -->
-            <div x-data="{ open: false }">
+            <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
                     <span class="text-xl font-semibold">SURAT KETERANGAN TIDAK MAMPU (SKTM)</span>
                     <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +170,7 @@
             </div>
 
             <!-- Surat Keterangan Kematian -->
-            <div x-data="{ open: false }">
+            <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
                     <span class="text-xl font-semibold">SURAT KETERANGAN KEMATIAN</span>
                     <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -192,7 +198,7 @@
             </div>
 
             <!-- Surat Keterangan Pindah Penduduk -->
-            <div x-data="{ open: false }">
+            <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
                     <span class="text-xl font-semibold">SURAT KETERANGAN PINDAH PENDUDUK</span>
                     <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -248,7 +254,7 @@
             </div>
 
             <!-- Surat Pengantar -->
-            <div x-data="{ open: false }">
+            <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
                     <span class="text-xl font-semibold">SURAT PENGANTAR</span>
                     <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -280,7 +286,7 @@
             </div>
 
             <!-- Surat Domisili -->
-            <div x-data="{ open: false }">
+            <div x-data="{ open: false }" class="mb-4">
                 <button @click="open = !open" class="w-full px-6 py-3 text-left border-2 rounded-lg flex justify-between items-center hover:bg-gray-200 transition-all duration-300">
                     <span class="text-xl font-semibold">SURAT DOMISILI</span>
                     <svg :class="{'rotate-90': open}" class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
