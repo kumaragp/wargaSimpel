@@ -8,9 +8,6 @@
     <link rel="shortcut icon" type="image/png" href="images/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBQnhi1J2-d1WCBbDAyEQAGlWNevWRwLo&libraries=places"></script>
-    <style>
         .font-inter {
             font-family: 'Inter', sans-serif;
         }
